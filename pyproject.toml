@@ -1,0 +1,24 @@
+[project]
+name = "assistente-virtual"
+version = "1.0.0"
+description = "Assistente virtual por voz em português: Wikipédia, YouTube e farmácia mais próxima."
+requires-python = ">=3.10"
+dependencies = ["requests>=2.31"]
+
+[project.optional-dependencies]
+voz = ["SpeechRecognition[audio]>=3.10", "pyttsx3>=2.90"]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[tool.setuptools]
+packages = ["assistente"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 130
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
